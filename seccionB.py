@@ -36,8 +36,9 @@ stringlength=len(password)
 finalPassword =password[stringlength::-1] 
 
 #removing "" from input 
-finalPassword = finalPassword[1:]
-finalPassword = finalPassword[:-1]
+if finalPassword[0] == "\"" and finalPassword[-1] == "\"": 
+    finalPassword = finalPassword[1:]
+    finalPassword = finalPassword[:-1]
 
 #printing final password 
 print(finalPassword) 
