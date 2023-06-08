@@ -7,8 +7,9 @@ try:
     complement = [int(x) for x in complement.split() if x.isdigit()]
     shift = [int(y) for y in shift.split() if y.isdigit()]
 except ValueError:
-    shift = 3
-    complement = 9
+    original = text
+    shift = [3]
+    complement = [9]
 
 #reversing password 
 
