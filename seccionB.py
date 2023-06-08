@@ -1,18 +1,18 @@
 
 #gathering information  
 text = input("Tu texto: ")
-try:   
+#gathering input  
+try:  #if complement and shift are specified 
     original, instructions = text.split(",") 
     shift, complement = instructions.split("y") 
     complement = [int(x) for x in complement.split() if x.isdigit()]
     shift = [int(y) for y in shift.split() if y.isdigit()]
-except ValueError:
+except ValueError: #if complement and shift are not specified 
     original = text
     shift = [3]
     complement = [9]
 
-#reversing password 
-
+#function to encrypt password
 def encrypt(original, shift, complement):
     #set up 
     alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -31,11 +31,12 @@ def encrypt(original, shift, complement):
         password = password + newCharacter  #adding to new password  
     return password  
 
+#reversing password 
 password = encrypt(original, shift, complement)
 stringlength=len(password) 
 finalPassword =password[stringlength::-1] 
 
-#removing "" from input 
+#removing "" from input if neccesary 
 if finalPassword[0] == "\"" and finalPassword[-1] == "\"": 
     finalPassword = finalPassword[1:]
     finalPassword = finalPassword[:-1]
